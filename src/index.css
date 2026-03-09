@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-gold text-gold font-semibold tracking-widest uppercase text-sm
+           hover:bg-gold hover:text-black transition-all duration-300;
+  }
+
+  .btn-azure {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-azure text-black font-semibold tracking-widest uppercase text-sm
+           hover:bg-azure-dark transition-all duration-300;
+  }
+
+  .section-label {
+    @apply text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl text-white leading-tight;
+  }
+
+  .gold-divider {
+    @apply w-16 h-px bg-gold my-6;
+  }
+
+  .input-field {
+    @apply w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 text-sm
+           focus:outline-none focus:border-gold transition-colors duration-200 rounded-none;
+  }
+
+  .admin-input {
+    @apply w-full bg-gray-800 border border-gray-700 text-white px-4 py-3 text-sm rounded
+           focus:outline-none focus:border-gold transition-colors duration-200;
+  }
+
+  .admin-label {
+    @apply block text-gray-400 text-xs font-semibold tracking-widest uppercase mb-2;
+  }
+}
