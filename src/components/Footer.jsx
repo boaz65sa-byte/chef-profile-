@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useContent } from '../context/ContentContext'
 
 export default function Footer() {
@@ -43,10 +44,18 @@ export default function Footer() {
             ))}
           </ul>
 
-          {/* Copy */}
-          <p className="text-gray-600 text-xs">
-            &copy; {year} Boaz Saada. All rights reserved.
-          </p>
+          {/* Copy + Admin */}
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <p className="text-gray-600 text-xs">
+              &copy; {year} Boaz Saada. All rights reserved.
+            </p>
+            <Link
+              to="/admin"
+              className="text-gray-700 hover:text-gold text-xs tracking-widest uppercase transition-colors"
+            >
+              ⚙ Admin
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
