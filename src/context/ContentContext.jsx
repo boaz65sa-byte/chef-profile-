@@ -117,11 +117,28 @@ export const uiLabels = {
 
 const ContentContext = createContext(null)
 
+function loadFromStorage(key, fallback) {
+  try {
+    const stored = localStorage.getItem(key)
+    return stored ? JSON.parse(stored) : fallback
+  } catch {
+    return fallback
+  }
+}
+
 export function ContentProvider({ children }) {
   const [lang, setLangState] = useState('en')
-  const [contentEn, setContentEn] = useState(defaultContentEn)
-  const [contentHe, setContentHe] = useState(defaultContentHe)
+  const [contentEn, setContentEn] = useState(() => loadFromStorage('siteContentEn', defaultContentEn))
+  const [contentHe, setContentHe] = useState(() => loadFromStorage('siteContentHe', defaultContentHe))
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    try { localStorage.setItem('siteContentEn', JSON.stringify(contentEn)) } catch {}
+  }, [contentEn])
+
+  useEffect(() => {
+    try { localStorage.setItem('siteContentHe', JSON.stringify(contentHe)) } catch {}
+  }, [contentHe])
 
   // Apply RTL / LTR to document
   useEffect(() => {

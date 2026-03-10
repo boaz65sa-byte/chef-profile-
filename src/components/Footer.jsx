@@ -51,7 +51,7 @@ export default function Footer() {
             </p>
             <Link
               to="/admin"
-              className="text-gray-700 hover:text-gold text-xs tracking-widest uppercase transition-colors"
+              className="text-gray-500 hover:text-gold text-xs tracking-widest uppercase transition-colors"
             >
               ⚙ Admin
             </Link>
